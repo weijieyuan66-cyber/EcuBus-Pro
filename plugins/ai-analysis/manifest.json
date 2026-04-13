@@ -1,0 +1,27 @@
+{
+  "id": "ecubus-ai-analysis",
+  "name": "AI Analysis",
+  "version": "0.1.0",
+  "description": "AI-powered bus analysis: expectation validation, fault hint organisation, NRC-aware reasoning, and realtime anomaly detection.",
+  "author": "EcuBus",
+  "mainEntry": "dist/main/index.cjs",
+  "icon": "icon.svg",
+  "readme": "README.md",
+  "tabs": [
+    {
+      "name": "ai-analysis",
+      "label": "AI Analysis",
+      "icon": "mdi:brain",
+      "items": [
+        {
+          "type": "button",
+          "id": "open-ai-analysis",
+          "label": "AI Analysis",
+          "icon": "mdi:brain",
+          "onClick": "openAnalysis",
+          "entry": "dist/renderer/index.html"
+        }
+      ]
+    }
+  ]
+}

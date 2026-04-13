@@ -1,0 +1,24 @@
+{
+  "name": "ecubus-ai-analysis",
+  "version": "0.1.0",
+  "description": "AI Analysis plugin for EcuBus-Pro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.renderer.config.ts",
+    "build:renderer": "vite build --config vite.renderer.config.ts",
+    "build:main": "vite build --config vite.main.config.ts",
+    "build": "npm run build:main && npm run build:renderer",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ecubus-pro/main-plugin-sdk": "0.0.10"
+  },
+  "devDependencies": {
+    "@ecubus-pro/renderer-plugin-sdk": "0.0.10",
+    "@vitejs/plugin-vue": "5.2.4",
+    "typescript": "^5.6.3",
+    "vite": "6.4.2",
+    "vue": "^3.5.13"
+  }
+}
