@@ -10,9 +10,20 @@
     <div v-else-if="error" class="error-state">
       <div class="error-icon">⚠️</div>
       <p class="error-message">{{ error }}</p>
-      <button class="retry-button" @click="fetchPlugins">
-        {{ $t('pluginMarketplace.retry') }}
-      </button>
+      <div class="error-actions">
+        <button class="retry-button" @click="fetchPlugins">
+          {{ $t('pluginMarketplace.retry') }}
+        </button>
+        <button class="retry-button" @click="handleManualCommand('install')">
+          {{ $t('pluginMarketplace.installFromZip') }}
+        </button>
+        <button class="retry-button" @click="handleManualCommand('load-path')">
+          {{ $t('pluginMarketplace.loadFromPath') }}
+        </button>
+        <button class="retry-button" @click="handleManualCommand('dev-plugin')">
+          {{ $t('pluginMarketplace.devPlugin') }}
+        </button>
+      </div>
     </div>
 
     <!-- Main Layout -->
@@ -944,6 +955,13 @@ onMounted(async () => {
   color: var(--el-color-error);
   font-size: 14px;
   margin-bottom: 16px;
+}
+
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
 }
 
 .retry-button {
