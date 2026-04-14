@@ -29,13 +29,33 @@ npm install
 
 # Start renderer dev server (hot reload)
 npm run dev
-# → Update manifest.json entry to http://localhost:5173/ for dev mode
-
-# Build for production
-npm run build
-# → dist/main/index.cjs   (main process worker)
-# → dist/renderer/        (renderer HTML/JS/CSS)
 ```
+
+**Loading in EcuBus-Pro dev mode**
+
+The committed `manifest.json` sets `entry` to `http://localhost:5173/` so the host
+treats the plugin as a live Vite dev-server URL.  The workflow is:
+
+1. Run `npm run dev` — Vite starts on `http://localhost:5173/`
+2. In EcuBus-Pro → Plugin → **Load Local Plugin** → select this folder
+3. The host reads `manifest.json`, sees an `http://` entry, and opens wujie against
+   the Vite dev server (hot-reload works, the SDK shim provides safe stubs)
+
+**Building for production / distribution**
+
+```bash
+npm run build
+```
+
+This runs three steps in sequence:
+
+1. `build:main` — compiles `src/main/index.ts` → `dist/main/index.cjs`
+2. `build:renderer` — Vite builds the Vue UI → `dist/renderer/`
+3. `build:manifest` — writes `dist/manifest.json` with `entry` switched back to
+   `dist/renderer/index.html` (the production file-serve path)
+
+When distributing the plugin as a ZIP, include `dist/manifest.json` (not the root
+`manifest.json`) alongside `dist/main/` and `dist/renderer/`.
 
 ## Loading into EcuBus-Pro
 

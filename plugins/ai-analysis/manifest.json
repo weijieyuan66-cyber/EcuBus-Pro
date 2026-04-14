@@ -19,7 +19,7 @@
           "label": "AI Analysis",
           "icon": "mdi:brain",
           "onClick": "openAnalysis",
-          "entry": "dist/renderer/index.html"
+          "entry": "http://localhost:5173/"
         }
       ]
     }

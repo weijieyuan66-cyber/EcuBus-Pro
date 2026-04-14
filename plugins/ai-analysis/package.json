@@ -8,7 +8,8 @@
     "dev": "vite --config vite.renderer.config.ts",
     "build:renderer": "vite build --config vite.renderer.config.ts",
     "build:main": "vite build --config vite.main.config.ts",
-    "build": "npm run build:main && npm run build:renderer",
+    "build:manifest": "node scripts/build-manifest.cjs",
+    "build": "npm run build:main && npm run build:renderer && npm run build:manifest",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
